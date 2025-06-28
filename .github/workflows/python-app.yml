@@ -38,31 +38,18 @@ jobs:
     - name: Test with pytest
       run: |
         pytest --alluredir=allure-results
-        # pytest - ez önmagában csak a pytestet futtatja le
-        # az allure-results a lentebb megadott változóval azonos legyen
-
-    # Allure Report hozzáadása
-    # Ez a blokk létre fogja hozni a jelentést
-    # Létrehoz egy Allure Riportor
+        
     - name: Allure Report action from marketplace
-      # felhasználunk vlami másik repot
       uses: simple-elf/allure-report-action@master
-      # a @ előtti rész valamkinek a repoja a githubon - rá lehet keresni google-ben: github-os találat
-      # a @ utáni pedik a branch neve
-      # if: alwasy() - azt jelenti, hohy mindig lefut, akkor is, ha valami eltörik
       if: always()
       with:
         allure_results: allure-results
         allure_history: allure-history
         keep_reports: 20
-
-    # Ez a blokk pedig be fogja másolni a jelentést egy branchbe (előtte létrehozza a branchet)
     - name: Deploy report to Github Pages
       if: always()
       uses: peaceiris/actions-gh-pages@v2
       env:
         PERSONAL_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        # létrehoz egy github branch-et
         PUBLISH_BRANCH: gh-pages
-        # ebbe a mappába rakja bele a jelentést
         PUBLISH_DIR: allure-history
