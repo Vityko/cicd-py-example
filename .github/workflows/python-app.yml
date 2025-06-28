@@ -37,16 +37,20 @@ jobs:
         flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
     - name: Test with pytest
       run: |
-        pytest --alluredir=allure_results # pytest - ez önmagában csak a pytestet futtatja le
+        pytest --alluredir=allure_results
+        # pytest - ez önmagában csak a pytestet futtatja le
         # az allure_results a lentebb megadott változóval azonos legyen
 
     # Allure Report hozzáadása
     # Ez a blokk létre fogja hozni a jelentést
-    - name: Allure Report action from marketplace # Létrehoz egy Allure Riportor
-      uses: simple-elf/allure-report-action@master # felhasználunk vlami másik repot - 
+    # Létrehoz egy Allure Riportor
+    - name: Allure Report action from marketplace
+      # felhasználunk vlami másik repot
+      uses: simple-elf/allure-report-action@master
       # a @ előtti rész valamkinek a repoja a githubon - rá lehet keresni google-ben: github-os találat
       # a @ utáni pedik a branch neve
-      if: always() # azt jelenti, hohy mindig lefut, akkor is, ha valami eltörik
+      # if: alwasy() - azt jelenti, hohy mindig lefut, akkor is, ha valami eltörik
+      if: always()
       with:
         allure_results: allure-results
         allure_history: allure-history
@@ -58,5 +62,7 @@ jobs:
       uses: peaceiris/actions-gh-pages@v2
       env:
         PERSONAL_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        PUBLISH_BRANCH: gh-pages # létrehoz egy github branch-et
-        PUBLISH_DIR: allure-history # ebbe a mappába rakja bele a jelentést
+        # létrehoz egy github branch-et
+        PUBLISH_BRANCH: gh-pages
+        # ebbe a mappába rakja bele a jelentést
+        PUBLISH_DIR: allure-history
