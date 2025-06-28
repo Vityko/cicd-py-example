@@ -1,5 +1,0 @@
-"DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
-"","0","test_add_positive","","Sat Jun 28 21:23:25 GMT 2025","passed","Sat Jun 28 21:23:25 GMT 2025","","test_mymath","",""
-"","0","test_add_negative","","Sat Jun 28 21:23:25 GMT 2025","passed","Sat Jun 28 21:23:25 GMT 2025","","test_mymath","",""
-"","0","test_add_string__expect_exception","","Sat Jun 28 21:23:25 GMT 2025","passed","Sat Jun 28 21:23:25 GMT 2025","","test_mymath","",""
-"","0","test_add_zero","","Sat Jun 28 21:23:25 GMT 2025","passed","Sat Jun 28 21:23:25 GMT 2025","","test_mymath","",""
