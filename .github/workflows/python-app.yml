@@ -37,9 +37,9 @@ jobs:
         flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
     - name: Test with pytest
       run: |
-        pytest --alluredir=allure_results
+        pytest --alluredir=allure-results
         # pytest - ez önmagában csak a pytestet futtatja le
-        # az allure_results a lentebb megadott változóval azonos legyen
+        # az allure-results a lentebb megadott változóval azonos legyen
 
     # Allure Report hozzáadása
     # Ez a blokk létre fogja hozni a jelentést
